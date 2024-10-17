@@ -5,8 +5,15 @@ function signupGet(req, res) {
     res.render("sign-up");
 }
 
+// POST /sign-up -> enter into the DB
+function signupPost(req, res) {
+    console.log("Insert into DB");
+    res.redirect("/log-in");
+}
+
 const signupController = {
     signupGet,
+    signupPost,
 }
 
 export default signupController;
