@@ -1,4 +1,4 @@
-//import db from "../db/queries.js";
+import db from "../db/queries.js";
 
 // GET /sign-up -> sign up form
 function signupGet(req, res) {
@@ -11,9 +11,7 @@ function signupPost(req, res) {
     res.redirect("/log-in");
 }
 
-const signupController = {
+export default {
     signupGet,
     signupPost,
-}
-
-export default signupController;
+};

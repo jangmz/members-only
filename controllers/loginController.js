@@ -11,9 +11,7 @@ function loginPost(req, res) {
     res.redirect("/");
 }
 
-const loginController = {
+export default {
     loginGet,
     loginPost,
-}
-
-export default loginController;
+};
