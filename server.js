@@ -7,6 +7,8 @@ import session from "express-session";
 import passport from "passport";
 import bcrypt from "bcryptjs";
 import homeRouter from "./routes/homeRoute.js";
+import loginRouter from "./routes/loginRouter.js";
+import signupRouter from "./routes/signupRouter.js";
 
 const app = express();
 dotenv.config();
@@ -20,6 +22,8 @@ app.set("view engine", "ejs");
 
 // routes
 app.use("/", homeRouter);
+app.use("/log-in", loginRouter);
+app.use("/sign-up", signupRouter);
 
 // app running
 app.listen(PORT, () => console.log(`App is running on port ${PORT}`));
