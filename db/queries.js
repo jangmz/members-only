@@ -28,6 +28,18 @@ async function insertUser(user) {
     console.log("User created!");
 }
 
+// find users email
+async function findUserEmail(email) {
+    console.log(`Searching: ${email}...`);
+    
+    const { row } = await pool.query(`
+            select * from users
+            where email=$1;
+        `, [email] );
+
+    return row;
+}
+
 /*
 
     ===== MESSAGES =====
@@ -55,4 +67,6 @@ async function insertMessage(message) {
 
 export default {
     insertUser,
+    findUserEmail,
+    insertMessage,
 }
