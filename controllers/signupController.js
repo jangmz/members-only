@@ -1,4 +1,6 @@
 import { matchedData, validationResult } from "express-validator";
+import db from "../db/queries.js";
+import bcrypt from "bcryptjs";
 
 // GET /sign-up -> sign up form
 function signupGet(req, res) {
@@ -6,7 +8,7 @@ function signupGet(req, res) {
 }
 
 // POST /sign-up -> enter into the DB
-function signupPost (req, res) {
+async function signupPost (req, res) {
     // save any errors from validation
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -16,7 +18,16 @@ function signupPost (req, res) {
     // save data if there are no errors -> data.firstName, data.lastName,...
     const data = matchedData(req);
 
+    // encrypt passwords
+    try {
+        const saltRounds = 10;
+        data.password = await bcrypt.hash(data.password1, saltRounds);
+    } catch (error) {
+        console.log(`Error hashing password: ${error}`);
+    }
+
     // inserting data into DB
+    await db.insertUser(data);
 
     res.redirect("/log-in");
 };
