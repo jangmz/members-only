@@ -32,24 +32,24 @@ async function insertUser(user) {
 async function findUsername(username) {
     console.log(`Searching: ${username}...`);
     
-    const { row } = await pool.query(`
+    const { rows } = await pool.query(`
             select * from users
             where username=$1;
         `, [username]);
 
-    return row;
+    return rows;
 }
 
 // find email
 async function findUserEmail(email) {
     console.log(`Searching: ${email}...`);
 
-    const { row } = await pool.query(`
+    const { rows } = await pool.query(`
             select * from users
             where email=$1;
         `, [email]);
 
-    return row;
+    return rows;
 }
 
 /*
