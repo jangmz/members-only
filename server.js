@@ -20,6 +20,10 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 
+// body-parsing middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // routes
 app.use("/", homeRouter);
 app.use("/log-in", loginRouter);
