@@ -4,22 +4,27 @@ import db from "../db/queries.js";
 // validation requirements
 const signUpValidation = [
     body("firstName")
-        .trim().notEmpty()
+        .trim()
+        .notEmpty()
         .isAlpha().withMessage(`First name must only contain letters`),
     body("lastName")
-        .trim().notEmpty()
+        .trim()
+        .notEmpty()
         .isAlpha().withMessage("Last name must only contain letters"),
-    body("email").trim().notEmpty()
+    body("email")
+        .trim()
+        .notEmpty()
         .custom(async email => {
             const user = await db.findUserEmail(email);
-            console.log(user);
-            if (user) throw new Error("User with this email already exists.");
+            if (user.length !== 0) throw new Error("User with this email already exists.");
         })
         .isEmail().withMessage(`Email is not the correct format. Enter it like so: example@mail.com`),
-    body("username").trim().notEmpty()
+    body("username")
+        .trim()
+        .notEmpty()
         .custom(async username => {
         const user = await db.findUsername(username);
-        if (user) throw new Error("Username is already taken.");
+        if (user.length !== 0) throw new Error("Username is already taken.");
     }),
     body("password1")
         .trim()
