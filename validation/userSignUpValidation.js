@@ -10,13 +10,13 @@ const signUpValidation = [
         .trim().notEmpty()
         .isAlpha().withMessage("Last name must only contain letters"),
     body("email").trim().notEmpty()
-        .custom(async email => {
+        .custom(async email => { // FIX: this does not work
             const user = await db.findUserEmail(email);
             if (user) throw new Error("User with this email already exists.");
         })
         .isEmail().withMessage(`Email is not the correct format. Enter it like so: example@mail.com`),
     body("username").trim().notEmpty()
-        .custom(async username => {
+        .custom(async username => { // FIX: this does not work
         const user = await db.findUsername(username);
         if (user) throw new Error("Username is already taken.");
     }),
