@@ -34,7 +34,7 @@ async function findUsername(username) {
     
     const { rows } = await pool.query(`
             select * from users
-            where username=$1;
+            where username = $1;
         `, [username]);
 
     return rows;
@@ -46,10 +46,20 @@ async function findUserEmail(email) {
 
     const { rows } = await pool.query(`
             select * from users
-            where email=$1;
+            where email = $1;
         `, [email]);
 
     return rows;
+}
+
+// find user by ID
+async function findUserById(ID) {
+    console.log(`Searching ID: ${ID}...`);
+
+    const { rows } = await pool.query(`
+            select * from users
+            where id = $1;
+        `, [ID]);
 }
 
 /*
@@ -81,5 +91,6 @@ export default {
     insertUser,
     findUsername,
     findUserEmail,
+    findUserById,
     insertMessage,
 }
