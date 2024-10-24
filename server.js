@@ -8,7 +8,8 @@ import homeRouter from "./routes/homeRoute.js";
 import loginRouter from "./routes/loginRouter.js";
 import signupRouter from "./routes/signupRouter.js";
 import logoutRouter from "./routes/logoutRouter.js";
-import { userAuthenticated } from "./middleware/userAuthenticated.js";
+import messageRouter from "./routes/messageRouter.js";
+import { setLocalsUser } from "./middleware/authMiddleware.js";
 import { loggs } from "./middleware/logs.js";
 
 const app = express();
@@ -38,7 +39,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // middleware
-app.use(userAuthenticated);
+app.use(setLocalsUser);
 app.use(loggs);
 
 // routes
@@ -46,6 +47,7 @@ app.use("/", homeRouter);
 app.use("/log-in", loginRouter);
 app.use("/sign-up", signupRouter);
 app.use("/log-out", logoutRouter);
+app.use("/messages", messageRouter);
 
 // app running
 app.listen(PORT, () => console.log(`App is running on port ${PORT}`));
