@@ -30,7 +30,7 @@ async function insertUser(user) {
 
 // find username
 async function findUsername(username) {
-    console.log(`Searching: ${username}...`);
+    console.log(`Searching username: ${username}...`);
     
     const { rows } = await pool.query(`
             select * from users
@@ -42,7 +42,7 @@ async function findUsername(username) {
 
 // find email
 async function findUserEmail(email) {
-    console.log(`Searching: ${email}...`);
+    console.log(`Searching e-mail: ${email}...`);
 
     const { rows } = await pool.query(`
             select * from users
@@ -60,6 +60,8 @@ async function findUserById(ID) {
             select * from users
             where id = $1;
         `, [ID]);
+
+    return rows;
 }
 
 /*
