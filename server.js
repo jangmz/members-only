@@ -8,6 +8,7 @@ import homeRouter from "./routes/homeRoute.js";
 import loginRouter from "./routes/loginRouter.js";
 import signupRouter from "./routes/signupRouter.js";
 import logoutRouter from "./routes/logoutRouter.js";
+import { userAuthenticated } from "./middleware/userAuthenticated.js";
 
 const app = express();
 dotenv.config();
@@ -36,16 +37,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 //app.use(express.urlencoded({extended: false}));
 
+// middleware
+app.use(userAuthenticated);
+
 // routes
 app.use("/", homeRouter);
 app.use("/log-in", loginRouter);
 app.use("/sign-up", signupRouter);
 app.use("/log-out", logoutRouter);
-
-// TODO: fix user authentication middleware
-app.use((req, res, next) => {
-    req.isAuthenticated() ? res.locals.user = req.user : res.locals.user = null;
-});
 
 // app running
 app.listen(PORT, () => console.log(`App is running on port ${PORT}`));
