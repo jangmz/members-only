@@ -9,6 +9,7 @@ import loginRouter from "./routes/loginRouter.js";
 import signupRouter from "./routes/signupRouter.js";
 import logoutRouter from "./routes/logoutRouter.js";
 import { userAuthenticated } from "./middleware/userAuthenticated.js";
+import { loggs } from "./middleware/logs.js";
 
 const app = express();
 dotenv.config();
@@ -35,10 +36,10 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-//app.use(express.urlencoded({extended: false}));
 
 // middleware
 app.use(userAuthenticated);
+app.use(loggs);
 
 // routes
 app.use("/", homeRouter);
