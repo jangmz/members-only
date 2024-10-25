@@ -1,4 +1,7 @@
 <nav>
+    <% if (locals.user) { %>
+        <h3>Hello, <%= user.username %></h3>
+    <% } %>
     <ul>
         <% if (locals.user) { %>
             <li><a href="/messages/new">New Message</a></li>
