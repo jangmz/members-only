@@ -40,7 +40,7 @@ app.use(passport.session());
 
 // middleware
 app.use(setLocalsUser);
-app.use(loggs);
+//app.use(loggs);
 
 // routes
 app.use("/", homeRouter);

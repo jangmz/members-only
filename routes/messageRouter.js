@@ -6,5 +6,6 @@ const messageRouter = Router();
 
 messageRouter.get("/", isAuth, messageController.messagesGet);
 messageRouter.get("/new", isAuth, messageController.newMessageGet);
+messageRouter.post("/new", isAuth, messageController.newMessagePost);
 
 export default messageRouter;
