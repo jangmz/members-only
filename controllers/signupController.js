@@ -8,7 +8,7 @@ function signupGet(req, res) {
 }
 
 // POST /sign-up -> enter into the DB
-async function signupPost (req, res) {
+async function signupPost (req, res, next) {
     // save any errors from validation
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -23,7 +23,7 @@ async function signupPost (req, res) {
         const saltRounds = 10;
         data.password = await bcrypt.hash(data.password1, saltRounds);
     } catch (error) {
-        console.log(`Error hashing password: ${error}`);
+        return next(error);
     }
 
     // inserting data into DB

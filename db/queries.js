@@ -78,14 +78,14 @@ async function getAllMessagesOrderedDesc() {
             SELECT title, text, timestamp, users.username FROM messages
             JOIN users ON messages.user_id = users.id
             ORDER BY messages.id DESC;
-            `);
+        `);
 
+        console.log("Done.");
         return rows;
     } catch (error) {
         console.log(error);
     }
 
-    console.log("Done.");
 }
 
 // inserts message into database

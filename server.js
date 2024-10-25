@@ -11,6 +11,7 @@ import logoutRouter from "./routes/logoutRouter.js";
 import messageRouter from "./routes/messageRouter.js";
 import { setLocalsUser } from "./middleware/authMiddleware.js";
 import { loggs } from "./middleware/logs.js";
+import { errorHandler } from "./middleware/error.js";
 
 const app = express();
 dotenv.config();
@@ -48,6 +49,9 @@ app.use("/log-in", loginRouter);
 app.use("/sign-up", signupRouter);
 app.use("/log-out", logoutRouter);
 app.use("/messages", messageRouter);
+
+// error handler
+app.use(errorHandler);
 
 // app running
 app.listen(PORT, () => console.log(`App is running on port ${PORT}`));
