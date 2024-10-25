@@ -6,6 +6,16 @@
     <title>New Message</title>
 </head>
 <body>
+    <%- include("partials/menu.ejs") %>
     <h1>New Message Form</h1>
+    <form action="/messages/New" method="post">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title">
+
+        <label for="message">Message</label>
+        <textarea name="message" id="message"></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
