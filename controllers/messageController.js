@@ -1,10 +1,9 @@
 import db from "../db/queries.js";
 
 // GET /messages -> displays all the messages from database
-function messagesGet(req, res) {
-    // TODO: fetch messages from database and display them
-    // TODO: display the authors and date created if user is signed in
-    res.render("messages");
+async function messagesGet(req, res) {
+    const messages = await db.getAllMessagesOrderedDesc();
+    res.render("messages", { messages });
 }
 
 // GET /messages/new -> displays form for message

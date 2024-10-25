@@ -8,5 +8,28 @@
 <body>
     <%- include("partials/menu.ejs") %>
     <h1>Messages</h1>
+    <% if (messages) { %>
+        
+        <div>
+            <% if (messages.length !== 0) { %>
+                <% messages.map(message => { %>
+                    <div>
+                        <p>
+                            Posted <%= message.timestamp.getDate() %>-<%= message.timestamp.getMonth() + 1 %>-<%= message.timestamp.getFullYear() %>
+                            by <%= message.username %>
+                        </p>
+                        <h3><%= message.title %></h3>
+                        <p><%= message.text %></p>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>There are not messages in the database currently.</p>
+            <% } %>
+        </div>
+    <% } else { %>
+        <div>
+            <p>Error: Failed to retrieve data from database.</p>
+        </div>
+    <% } %>
 </body>
 </html>

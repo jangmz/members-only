@@ -69,7 +69,26 @@ async function findUserById(ID) {
     ===== MESSAGES =====
 
 */
+// gets all messages from database
+async function getAllMessagesOrderedDesc() {
+    console.log("Retrieving all messages...");
+    
+    try {
+        const { rows } = await pool.query(`
+            SELECT title, text, timestamp, users.username FROM messages
+            JOIN users ON messages.user_id = users.id
+            ORDER BY messages.id DESC;
+            `);
 
+        return rows;
+    } catch (error) {
+        console.log(error);
+    }
+
+    console.log("Done.");
+}
+
+// inserts message into database
 async function insertMessage(message) {
     console.log("Saving message...");
 
@@ -95,5 +114,6 @@ export default {
     findUsername,
     findUserEmail,
     findUserById,
+    getAllMessagesOrderedDesc,
     insertMessage,
 }
