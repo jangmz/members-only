@@ -1,15 +1,23 @@
-<nav>
-    <% if (locals.user) { %>
-        <h3>Hello, <%= user.username %></h3>
-    <% } %>
-    <ul>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
         <% if (locals.user) { %>
-            <li><a href="/messages/new">New Message</a></li>
-            <li><a href="/messages">Messages</a></li>
-            <li><a href="/log-out">Log Out</a></li>
-        <% } else { %>
-            <li><a href="/sign-up">Sign Up</a></li>
-            <li><a href="/log-in">Log In</a></li>
+            <h3 class="navbar-brand">Hello, <%= user.username %></h3>
         <% } %>
-    </ul>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <% if (locals.user) { %>
+                    <li class="nav-item"><a class="nav-link" href="/messages/new">New Message</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/messages">Messages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/log-out">Log Out</a></li>
+                <% } else { %>
+                    <li class="nav-item"><a class="nav-link" href="/sign-up">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/log-in">Log In</a></li>
+                <% } %>
+            </ul>
+        </div>
+        
+    </div>
 </nav>
