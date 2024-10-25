@@ -23,7 +23,9 @@ async function newMessagePost(req, res) {
         user_id: req.user.id
     }
 
-    console.log(message)
+    await db.insertMessage(message);
+
+    res.redirect("/messages");
 }
 
 export default {

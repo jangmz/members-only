@@ -75,12 +75,13 @@ async function insertMessage(message) {
 
     try {
         await pool.query(`
-                insert into messages(title, text, timestamp)
-                values ($1, $2, $3);
+                insert into messages(title, text, timestamp, user_id)
+                values ($1, $2, $3, $4);
             `, [
                 message.title,
                 message.text,
-                message.timestamp
+                message.timestamp,
+                message.user_id
             ]);
     } catch (error) {
         console.log(error);
