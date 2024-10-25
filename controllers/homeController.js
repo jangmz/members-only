@@ -1,8 +1,10 @@
-//import db from "../db/queries.js";
-
 // GET / -> homepage
 function homeGet(req, res) {
-    res.render("index");
+    if (req.isAuthenticated()) {
+        res.redirect("/messages");
+    } else {
+        res.redirect("/log-in");
+    }
 }
 
 const homeController = {
