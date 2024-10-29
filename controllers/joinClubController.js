@@ -24,15 +24,10 @@ async function joinClubPost(req, res, next) {
                 return next(error);
             }
         }
+
         res.render("join-club", { 
             success: true,
             message: "Congratulations! You have become a member of Clubhouse." 
-        });
-    } else if (req.user.membership === true) { // TODO: this is not working
-        // display message that user is already a member
-        res.render("join-club", {
-            success: null,
-            message: "You are already a member!"
         });
     } else {
         // display message that the secret is not correct

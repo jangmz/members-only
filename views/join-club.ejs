@@ -12,18 +12,22 @@
     <div class="container text-center">
         <h1>Get membership</h1>
         <div class="container-fluid w-50 mt-4">
-            <form action="/join-club" method="post">
-                <div class="mb-3">
-                    <label for="secret" class="form-label">Enter secret passcode</label>
-                    <input type="password" name="secret" id="secret" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-warning">Join</button>
-            </form>
-
+            <% if (!locals.user.membership) { %>
+                <form action="/join-club" method="post">
+                    <div class="mb-3">
+                        <label for="secret" class="form-label">Enter secret passcode</label>
+                        <input type="password" name="secret" id="secret" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-warning">Join</button>
+                </form>
+            <% } else { %>
+                <div class="alert alert-secondary">You are already a member!</div>
+            <% } %>
             <div class="text-center mt-4">
-                <% if (success && typeof success === "boolean") { %><p class="alert alert-success"><%= message %></p>
-                <% } else if (!success && typeof success === "boolean") { %> <p class="alert alert-danger"><%= message %></p>
-                <% } else if (success === null && message !== null) {%> <p class="alert alert-secondary"><%= message %></p>
+                <% if (success && typeof success === "boolean") { %>
+                    <p class="alert alert-success"><%= message %></p>
+                <% } else if (!success && typeof success === "boolean") { %> 
+                    <p class="alert alert-danger"><%= message %></p>
                 <% } %>
             </div>
         </div>
