@@ -12,11 +12,11 @@
     <div class="container">
         <h1 class="text-center">Messages</h1>
         <% if (messages) { %>
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <% if (messages.length !== 0) { %>
-                        <% messages.map(message => { %>
-                            <div class="card text-center m-3 pt-3 col-12">
+            <div class="row">
+                <% if (messages.length !== 0) { %>
+                    <% messages.map(message => { %>
+                        <div class="col-md-6 col-12">
+                            <div class="card text-center m-4 pt-3">
                                 <div class="card-head">
                                     <h3 class="card-title"><%= message.title %></h3>
                                 </div>
@@ -24,23 +24,23 @@
                                     <p class="card-text"><%= message.text %></p>
                                 </div>
                                 <div class="card-footer text-body-tertiary">
-                                <% if (locals.user.membership) { %>
-                                    Posted <%= message.timestamp.getDate() %>-<%= message.timestamp.getMonth() + 1 %>-<%= message.timestamp.getFullYear() %>
-                                    by <%= message.username %>
-                                <% } else { %>
-                                    Posted **-**-**** by ******
-                                <% } %>
+                                    <% if (locals.user.membership) { %>
+                                        Posted <%= message.timestamp.getDate() %>-<%= message.timestamp.getMonth() + 1 %>-<%= message.timestamp.getFullYear() %>
+                                        by <%= message.username %>
+                                    <% } else { %>
+                                        Posted **-**-**** by ******
+                                    <% } %>
                                 </div>
                             </div>
-                        <% }) %>
-                    <% } else { %>
-                        <p>There are not messages in the database currently.</p>
-                    <% } %>
-                </div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p class="alert alert-warning">There are not messages in the database currently.</p>
+                <% } %>
             </div>
         <% } else { %>
             <div>
-                <p>Error: Failed to retrieve data from database.</p>
+                <p class="alert alert-danger">Error: Failed to retrieve data from database.</p>
             </div>
         <% } %>
     </div>
