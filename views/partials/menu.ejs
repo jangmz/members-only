@@ -3,10 +3,11 @@
         <% if (locals.user) { %>
             <h3 class="navbar-brand">Hello, <%= user.username %></h3>
         <% } %>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <!--<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        </button>-->
+        
+        <!--<div class="collapse navbar-collapse" id="navbarNav">-->
             <ul class="navbar-nav">
                 <% if (locals.user) { %>
                     <li class="nav-item"><a class="nav-link" href="/messages/new">New Message</a></li>
@@ -17,7 +18,7 @@
                     <li class="nav-item"><a class="nav-link" href="/log-in">Log In</a></li>
                 <% } %>
             </ul>
-        </div>
+        <!--</div>-->
         
     </div>
 </nav>
