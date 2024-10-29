@@ -1,19 +1,19 @@
-<nav class="navbar navbar-expand-md bg-body-tertiary sticky-top bg-primary text-white mb-4">
+<nav class="navbar navbar-expand-md bg-primary sticky-top mb-4">
     <div class="container-fluid">
         <% if (locals.user) { %>
-            <h3 class="navbar-brand">Hello, <%= user.username %></h3>
+            <h3 class="navbar-brand text-white">Hello, <%= user.username %></h3>
         <% } %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav ms-auto d-flex gap-3">
+            <ul class="navbar-nav ms-auto d-flex gap-2">
                 <% if (locals.user) { %>
                     <% if (locals.user.membership === false) { %>
-                        <li class="nav-item"><a href="/join-club" class="nav-link btn btn-warning">Join club</a></li>
+                        <li class="nav-item"><a href="/join-club" class="nav-link text-white">Join club</a></li>
                     <% } %>
-                    <li class="nav-item"><a href="/messages/new" class="nav-link btn btn-success">New Message</a></li>
+                    <li class="nav-item"><a href="/messages/new" class="nav-link text-white">New Message</a></li>
                     <li class="nav-item"><a href="/messages" class="nav-link text-white">Messages</a></li>
                     <li class="nav-item"><a href="/log-out" class="nav-link text-white">Log Out</a></li>
                 <% } else { %>
