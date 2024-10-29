@@ -22,7 +22,9 @@
 
             <div class="text-center mt-4">
                 <% if (success && typeof success === "boolean") { %><p class="alert alert-success"><%= message %></p>
-                <% } else if (!success && typeof success === "boolean") { %> <p class="alert alert-danger"><%= message %></p><% } %>
+                <% } else if (!success && typeof success === "boolean") { %> <p class="alert alert-danger"><%= message %></p>
+                <% } else if (success === null && message !== null) {%> <p class="alert alert-secondary"><%= message %></p>
+                <% } %>
             </div>
         </div>
     </div>

@@ -64,6 +64,16 @@ async function findUserById(ID) {
     return rows;
 }
 
+// user gets membership
+async function assignMembership(user) {
+    await pool.query(`
+        UPDATE users
+        SET membership = true
+        WHERE id = $1;
+        `, [user.id]);
+    console.log(`User ${user.username} has become a member.`);
+}
+
 /*
 
     ===== MESSAGES =====
@@ -114,6 +124,7 @@ export default {
     findUsername,
     findUserEmail,
     findUserById,
+    assignMembership,
     getAllMessagesOrderedDesc,
     insertMessage,
 }
