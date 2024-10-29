@@ -16,18 +16,20 @@
                 <div class="row justify-content-center">
                     <% if (messages.length !== 0) { %>
                         <% messages.map(message => { %>
-                            <div class="card text-center m-3 col-12">
+                            <div class="card text-center m-3 pt-3 col-12">
                                 <div class="card-head">
                                     <h3 class="card-title"><%= message.title %></h3>
                                 </div>
                                 <div class="card-body">
                                     <p class="card-text"><%= message.text %></p>
                                 </div>
-                                <div class="card-footer">
-                                    <p>
-                                        Posted <%= message.timestamp.getDate() %>-<%= message.timestamp.getMonth() + 1 %>-<%= message.timestamp.getFullYear() %>
-                                        by <%= message.username %>
-                                    </p>
+                                <div class="card-footer text-body-tertiary">
+                                <% if (locals.user.membership) { %>
+                                    Posted <%= message.timestamp.getDate() %>-<%= message.timestamp.getMonth() + 1 %>-<%= message.timestamp.getFullYear() %>
+                                    by <%= message.username %>
+                                <% } else { %>
+                                    Posted **-**-**** by ******
+                                <% } %>
                                 </div>
                             </div>
                         <% }) %>
