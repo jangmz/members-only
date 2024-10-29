@@ -10,18 +10,20 @@
 <body>
     <%- include("partials/menu.ejs") %>
     <div class="container">
-        <h1>New Message Form</h1>
-        <form action="/messages/New" method="post">
-            <div class="mb-3">
-                <label class="form-label" for="title">Title</label>
-                <input class="form-control" type="text" name="title" id="title">
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="message">Message</label>
-                <textarea class="form-control" name="message" id="message"></textarea>
-            </div>
-            <button class="btn btn-primary" type="submit">Submit</button>
-        </form>
+        <h1 class="text-center">New Message Form</h1>
+        <div class="container-fluid w-50">
+            <form action="/messages/New" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" name="title" id="title">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="message">Message</label>
+                    <textarea class="form-control" name="message" id="message" rows="4"></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
     </div>
 
     <!-- Bootstrap JavaScript and dependencies (jQuery and Popper.js) -->

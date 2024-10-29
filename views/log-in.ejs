@@ -9,16 +9,23 @@
 </head>
 <body>
     <%- include("partials/menu.ejs") %>
-    <h1>Log In</h1>
-    <form action="/log-in" method="post">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" value="admin" required>
-
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" value="Admin1234!" required>
-
-        <button type="submit">Log In</button>
-    </form>
+    <div class="container text-center">
+        <h1 class="mb-4">Log In</h1>
+        <div class="container-fluid w-50">
+            <form action="/log-in" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="username">Username</label>
+                    <input class="form-control" type="text" name="username" id="username" value="admin" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="password">Password</label>
+                    <input class="form-control" type="password" name="password" id="password" value="Admin1234!" required>
+                </div>        
+                <button class="btn btn-primary" type="submit">Log In</button>
+            </form>
+        </div>
+    </div>
+    
     <!-- Bootstrap JavaScript and dependencies (jQuery and Popper.js) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>

@@ -9,28 +9,39 @@
 </head>
 <body>
     <%- include("partials/menu.ejs") %>
-    <h1>Sign Up</h1>
-    <form action="/sign-up" method="post">
-        <label for="firstName">First name</label>
-        <input type="text" name="firstName" id="firstName" value="Test">
-
-        <label for="lastName">Last name</label>
-        <input type="text" name="lastName" id="lastName" value="User">
-
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" value="test2@mail.com">
-
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" value="test2">
-
-        <label for="password1">Password</label>
-        <input type="password" name="password1" id="password1" value="Test1234!">
-
-        <label for="password2">Confirm password</label>
-        <input type="password" name="password2" id="password2" value="Test1234!">
-
-        <button type="submit">Sign Up</button>
-    </form>
+    <div class="container">
+        <h1 class="text-center mb-4">Sign Up</h1>
+        <div class="container-fluid w-50">
+            <form action="/sign-up" method="post">
+                <div class="mb-3">
+                    <label class="form-label" for="firstName">First name</label>
+                    <input class="form-control" type="text" name="firstName" id="firstName" value="Test">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="lastName">Last name</label>
+                    <input class="form-control" type="text" name="lastName" id="lastName" value="User">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="email">Email</label>
+                    <input class="form-control" type="email" name="email" id="email" value="test2@mail.com">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="username">Username</label>
+                    <input class="form-control" type="text" name="username" id="username" value="test2">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="password1">Password</label>
+                    <input class="form-control" type="password" name="password1" id="password1" value="Test1234!">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="password2">Confirm password</label>
+                    <input class="form-control" type="password" name="password2" id="password2" value="Test1234!">
+                </div>
+                <button class="btn btn-primary" type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    
     <!-- Bootstrap JavaScript and dependencies (jQuery and Popper.js) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
