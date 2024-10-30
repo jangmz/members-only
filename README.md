@@ -1,4 +1,4 @@
-# School inventory app
+# Members only Clubhouse app
 Aplication preview: [Members only Clubhouse](https://members-only-clubhouse23.up.railway.app/sign-up)
 
 ## Description
