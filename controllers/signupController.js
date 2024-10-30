@@ -12,7 +12,14 @@ async function signupPost (req, res, next) {
     // save any errors from validation
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+        let details = "";
+        errors.array().map(error => details = details + error.msg + " ");
+
+        const error = new Error();
+        error.status = 400;
+        error.details = details;
+        
+        return next(error)
     }
 
     // save data if there are no errors -> data.firstName, data.lastName,...
