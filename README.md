@@ -1,5 +1,5 @@
 # School inventory app
-Aplication preview: [Members only Clubhouse](https://members-only-clubhouse23.up.railway.app/log-in)
+Aplication preview: [Members only Clubhouse](https://members-only-clubhouse23.up.railway.app/sign-up)
 
 ## Description
 This web application serves as a demonstration of my knowledge for user authentication and sessions in Express (NodeJS) along with SQL for data storage. First user needs to sign up with his information and password that gets encrypted and saved into PostgreSQL database. After that you can log in with your username and password and session is created. By default, user doesn't get a membership and admin status. All default users can create and see messages that are stored in the database but only members can view the date and authors of the messages and admin users can delete those messages. 
