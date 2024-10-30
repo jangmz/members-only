@@ -4,9 +4,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
     "dev": "node --watch server.js",
-    "tables": "node ./db/createTables.js"
+    "tables": "node ./db/createTables.js",
+    "tables-and-start": "npm run tables && npm run start"
   },
   "author": "",
   "license": "ISC",
