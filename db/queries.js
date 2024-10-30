@@ -119,6 +119,20 @@ async function insertMessage(message) {
     console.log("Message saved.");
 }
 
+// delete a message by ID
+async function deleteMessage(id) {
+    console.log(`Deleting message with ID ${id}...`);
+    try {
+        await pool.query(`
+            DELETE FROM messages
+            WHERE id = $1;
+            `, [id]);
+    } catch (error) {
+        console.log(error);
+    }
+    console.log("Deleted");
+}
+
 export default {
     insertUser,
     findUsername,
@@ -127,4 +141,5 @@ export default {
     assignMembership,
     getAllMessagesOrderedDesc,
     insertMessage,
+    deleteMessage,
 }
