@@ -12,8 +12,8 @@ async function insertUser(user) {
 
     try {
         await pool.query(`
-                insert into users(first_name, last_name, username, password, email, membership)
-                values($1, $2, $3, $4, $5, false);
+                insert into users(first_name, last_name, username, password, email, membership, admin)
+                values($1, $2, $3, $4, $5, false, false);
             `, [
                 user.firstName,
                 user.lastName,

@@ -14,7 +14,7 @@ const createTables = `
         password varchar(255) not null,
         email varchar(255),
         membership boolean not null,
-        admin boolean
+        admin boolean not null
     );
 
     CREATE TABLE IF NOT EXISTS messages (
