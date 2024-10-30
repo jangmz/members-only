@@ -13,20 +13,16 @@ const createTables = `
         username varchar(255) not null,
         password varchar(255) not null,
         email varchar(255),
-        membership boolean not null    
+        membership boolean not null,
+        admin boolean
     );
 
-    create table if not exists messages (
+    CREATE TABLE IF NOT EXISTS messages (
         id serial primary key not null,
         title varchar(255) not null,
         text varchar(255) not null,
-        timestamp date not null
-    );
-
-    create table if not exists created (
-        id serial primary key not null,
-        user_id integer references users(id) on delete cascade,
-        message_id integer references messages(id) on delete cascade
+        timestamp date not null,
+        user_id integer not null references users(id) on delete cascade
     );
 `;
 
