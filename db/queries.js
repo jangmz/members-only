@@ -74,6 +74,17 @@ async function assignMembership(user) {
     console.log(`User ${user.username} has become a member.`);
 }
 
+// user becomes admin
+async function assignAdmin(user) {
+    await pool.query(`
+        UPDATE users
+        SET admin = true
+        WHERE id = $1;
+        `, [user.id]);
+    
+    console.log(`User ${user.username} has become admin.`);
+}
+
 /*
 
     ===== MESSAGES =====
@@ -139,6 +150,7 @@ export default {
     findUserEmail,
     findUserById,
     assignMembership,
+    assignAdmin,
     getAllMessagesOrderedDesc,
     insertMessage,
     deleteMessage,
