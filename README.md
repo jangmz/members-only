@@ -1,4 +1,4 @@
-# School inventory app
+# Members only Clubhouse
 Aplication preview: [Members only Clubhouse]()
 
 ## Description
