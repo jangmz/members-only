@@ -85,7 +85,7 @@ async function getAllMessagesOrderedDesc() {
     
     try {
         const { rows } = await pool.query(`
-            SELECT title, text, timestamp, users.username FROM messages
+            SELECT messages.id, title, text, timestamp, users.username FROM messages
             JOIN users ON messages.user_id = users.id
             ORDER BY messages.id DESC;
         `);
