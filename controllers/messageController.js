@@ -27,8 +27,21 @@ async function newMessagePost(req, res) {
     res.redirect("/messages");
 }
 
+// POST /messages/delete/:messageId -> deletes a message from DB
+async function deleteMessagePost(req, res, next) {
+    const messageId = req.params.messageId;
+    try {
+        await db.deleteMessage(messageId);
+    } catch (error) {
+        return next(error);
+    }
+
+    res.redirect("/messages");
+}
+
 export default {
     messagesGet,
     newMessageGet,
-    newMessagePost
+    newMessagePost,
+    deleteMessagePost,
 }
